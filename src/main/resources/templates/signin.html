@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            align-items: center;
+        }
+        .form-section {
+            padding: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+
+        }
+        .image-section {
+            text-align: center;
+            padding: 20px;
+        }
+        .green {
+            color: green;
+            font-weight: bold;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-section">
+        <h4>WELCOME BACK</h4>
+        <h1>Sign In to Your Account</h1>
+        <form action="/auth/home" method="post">
+            <label>Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your Password" required>
+
+            <p th:if="${error != null}" th:text="${error}" style="color: red;"></p>
+
+            <button type="submit">Sign In</button>
+        </form>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signup">Sign Up</a></p>
+        </div>
+    </div>
+    <div class="image-section">
+        <h1><span class="green">Green</span> & Tasty</h1>
+        <img src="https://source.unsplash.com/400x300/?restaurant,food" alt="Restaurant image">
+    </div>
+</div>
+</body>
+</html>

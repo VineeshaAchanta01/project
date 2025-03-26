@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+        }
+        .form-section {
+            padding: 20px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+
+        }
+        .image-section {
+            text-align: center;
+            padding: 20px;
+        }
+        .green {
+            color: green;
+        }
+        .signin-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-section">
+        <h4>LET'S GET YOU STARTED</h4>
+        <h1>Create an Account</h1>
+        <form action="/auth/signup" method="post">
+            <div class="input-group">
+                <div>
+                    <label>First Name</label>
+                    <input type="text" name="firstName" placeholder="Enter your First Name" required>
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" placeholder="Enter your Last Name" required>
+                </div>
+            </div>
+            <label>Email</label>
+            <input type="email" name="email" id="signup-email" placeholder="Enter your Email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your Password" required>
+            <p th:if="${error != null}" th:text="${error}" style="color: red;"></p>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="signin-link">
+            <p>Already have an account? <a href="signin">Sign In</a></p>
+        </div>
+    </div>
+    <div class="image-section">
+        <h1><span class="green">Green</span> & Tasty</h1>
+        <img src="https://source.unsplash.com/400x300/?restaurant,food" alt="Restaurant image">
+    </div>
+</div>
+</body>
+</html>
